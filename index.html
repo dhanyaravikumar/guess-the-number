@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>guess the number</title>
+        <style>
+            body{
+                background-color: black;
+            }
+            h1{
+                color: blueviolet;
+                text-align: center;
+            }
+            div{
+                padding: 20px;
+                border: 2px solid beige;
+                width: 500px;
+                height: 100px;
+                margin-top: 100px;
+                margin-left: 360px;
+            }
+            p{
+                color: aqua;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>GUESS THE NUMBER CHALLENGE</h1>
+        <div id="container">
+            <input type="number" placeholder="enter your number" id="inputnum">
+            <button type="submit" onclick="submitted()">SUBMIT</button>
+             <p id="result"> </p>
+             <p id="score"></p>
+        </div>
+       
+
+        <script>
+            var yourscore = 10
+            function submitted() {
+                var inputnum=document.getElementById('inputnum').value;
+                var result=document.getElementById('result')
+                var score=document.getElementById('score')
+                var randomnum=Math.floor(Math.random()*10)
+                result.textContent="the number is : " + randomnum
+                if(randomnum != inputnum){
+                    yourscore--
+                }
+                score.textContent="your score : " +yourscore
+
+                if(yourscore==0){
+                    alert("you lost")
+                    location.reload()
+                }
+                if(randomnum == inputnum){
+                    alert ("you win \n your score : " + yourscore)
+                    location.reload()
+                }
+                
+            }
+        </script>
+    </body>
+</html>
